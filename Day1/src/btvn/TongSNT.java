@@ -1,3 +1,5 @@
+package btvn;
+
 import java.util.Scanner;
 public class TongSNT {
     public static void main(String[] args) {
