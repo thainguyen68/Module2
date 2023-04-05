@@ -1,14 +1,15 @@
 package BaiTap.LopPTBac2;
 
-public class Lop {
+public class Loop {
     double a ,b, c;
 
-    public Lop(double a, double b, double c) {
+    public Loop(double a, double b, double c) {
         this.a = a;
         this.b = b;
         this.c = c;
     }
-    public Lop() {}
+    public Loop() {}
+
 
     public double getA() {
         return a;
@@ -42,17 +43,17 @@ public class Lop {
 
 
     public double  getRoot1() {
-        return ((-b + Math.sqrt(b * b - 4*a*b))/2*a);
+        return (-b + Math.sqrt(getDiscriminant()))/2*a;
     }
     public double  getRoot2() {
-        return ((-b - Math.sqrt(b * b - 4*a*b))/2*a);
+        return (-b - Math.sqrt(getDiscriminant()))/2*a;
     }
 
 
     //toString
     @Override
     public String toString() {
-        return "Lop{" +
+        return "Loop{" +
                 "a=" + a +
                 ", b=" + b +
                 ", c=" + c +
