@@ -22,7 +22,7 @@ public class TimMaxMang2Chieu {
         arr(arr1);
     }
 
-    
+
     // kiểm tra Max:
     public static void arr(int[][] arr1) {
         int max = arr1[0][0];
