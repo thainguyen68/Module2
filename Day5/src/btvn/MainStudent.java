@@ -37,7 +37,7 @@ public class MainStudent {
 //            students[i].setHoa(hoa);
 //        }
 
-        
+
         double max = students[0].avg();
         int index=0;
 
