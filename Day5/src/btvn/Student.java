@@ -16,7 +16,7 @@ public class Student {
         this.ly = ly;
         this.hoa = hoa;
     }
-    public Student () {}
+    public Student(){}
 
 
 
@@ -74,18 +74,22 @@ public class Student {
 
 
 
-//    public static Student student() {
-//        System.out.println("nhập tên: ");
-//        String ten = scanner.next();
-//
-//        System.out.println("nhập tuổi: ");
-//        int tuoi = scanner.nextInt();
-//        System.out.println("nhập điểm toán: ");
-//        int toan = scanner.nextInt();
-//        System.out.println("nhập điểm ly: ");
-//        int ly = scanner.nextInt();
-//        System.out.println("nhập điểm hoá: ");
-//        int hoa = scanner.nextInt();
-//        return new Student(ten,tuoi,toan,ly,hoa);
-//    }
+    public static Student student() {
+        System.out.println("nhập tên: ");
+        String ten = scanner.next();
+
+        System.out.println("nhập tuổi: ");
+        int tuoi = scanner.nextInt();
+        System.out.println("nhập điểm toán: ");
+        int toan = scanner.nextInt();
+        System.out.println("nhập điểm ly: ");
+        int ly = scanner.nextInt();
+        System.out.println("nhập điểm hoá: ");
+        int hoa = scanner.nextInt();
+        return new Student(ten,tuoi,toan,ly,hoa);
+    }
+
+    public double avg () {
+        return ((ly+toan+hoa)/3);
+    }
 }
