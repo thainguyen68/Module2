@@ -19,7 +19,7 @@ public class MainProduct {
             System.out.println(products[j]);
         }
 
-        
+
         MethodPro.search(products);
         MethodPro.sumPriceAllProduct(products);
 
