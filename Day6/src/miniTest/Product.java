@@ -70,17 +70,4 @@ public class Product {
                 ", type='" + type + '\'' +
                 '}';
     }
-
-    public static Product getProduct() {
-        Scanner scanner= new Scanner(System.in);
-        System.out.println("Nhập mã: ");
-        int id = scanner.nextInt();
-        System.out.println("Nhập tên: ");
-        String name = scanner.next();
-        System.out.println("Nhập giá: ");
-        double price = scanner.nextDouble();
-        System.out.println("Nhập loại: ");
-        String type = scanner.next();
-        return new Product(id,name,price,type);
-    }
 }

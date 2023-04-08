@@ -7,21 +7,16 @@ public class MainProduct {
 
     public static void main(String[] args) {
         System.out.println("Nhập số lượng sản phẩm: ");
-
         int num = scanner.nextInt();
         Product[] products = new Product[num];
         for (int i = 0; i < products.length; i++) {
-            products[i] = Product.getProduct();
+            products[i] = MethodPro.getProduct();
         }
 
-        //display Product:
-        for (int j = 0; j < products.length; j++) {
-            System.out.println(products[j]);
-        }
-
-
+        MethodPro.displayPro(products);
         MethodPro.search(products);
         MethodPro.sumPriceAllProduct(products);
+        MethodPro.EditProduct(products);
 
 
 
