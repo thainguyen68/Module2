@@ -13,12 +13,35 @@ public class MainProduct {
             products[i] = MethodPro.getProduct();
         }
 
-        MethodPro.displayPro(products);
-        MethodPro.search(products);
-        MethodPro.sumPriceAllProduct(products);
-        MethodPro.EditProduct(products);
+//        MethodPro.displayPro(products);
+//        MethodPro.search(products);
+//        MethodPro.sumPriceAllProduct(products);
+//        MethodPro.editProduct(products);
 
-
+        System.out.println("Nhap điều bạn muốn:");
+        System.out.println("1 Nếu bạn muốn hiển thị danh sách sản phẩm"+"\n"+
+                "2 Nếu bạn muốn tìm kiếm sản phẩm\n"+
+                "3 Nếu bạn muốn tinh tổng giá các sản phẩm\n"+
+                "4 Nếu bạn muốn sửa sản phẩm");
+        int number=scanner.nextInt();
+        switch (number){
+            case 1:
+                MethodPro.displayPro(products);
+                break;
+            case 2:
+                MethodPro.search(products);
+                break;
+            case 3:
+                MethodPro.sumPriceAllProduct(products);
+                break;
+            case 4:
+                MethodPro.editProduct(products);
+                break;
+            case 0:
+                System.exit(0);
+            default:
+                System.out.println("Mời nhập lại:");
+        }
 
     }
 }

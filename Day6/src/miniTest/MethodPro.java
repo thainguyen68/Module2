@@ -54,7 +54,7 @@ public class MethodPro {
     }
 
     //Edit Product:
-    public static void EditProduct(Product[] products) {
+    public static void editProduct(Product[] products) {
         System.out.println("Nhập id muốn sửa: ");
         int index = scanner.nextInt();
         for (int i = 0; i < products.length; i++) {
@@ -65,5 +65,9 @@ public class MethodPro {
         }
         System.out.println(products[index].toString());
     }
+
+    //Delete Product:
+
+
 
 }
