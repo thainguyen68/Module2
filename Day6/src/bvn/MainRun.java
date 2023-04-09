@@ -10,6 +10,15 @@ public class MainRun {
         Employer[] employers = new Employer[num];
 
 
+        for (int i = 0; i < employers.length; i++) {
+            for (int j = 0; j < employers.length ; j++) {
+//                Employer[] fullTimes = Employer.getEmployer();
+                Employer partTimes = PartTime.getEmployer();
+            }
+//
+        }
+
+
         for (int i = 0; i < employers.length ; i++) {
             if (employers[i] instanceof FullTime) {
                 FullTime human = (FullTime) employers[i];

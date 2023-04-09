@@ -27,6 +27,4 @@ public class FullTime extends Employer {
                 ", age=" + age +
                 '}';
     }
-
-
 }

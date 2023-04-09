@@ -67,7 +67,23 @@ public class MethodPro {
     }
 
     //Delete Product:
+    public static void deleteProduct(Product[] products) {
+        System.out.println("Nhập tên sản phẩm cần xóa vào đây: ");
+        String deleteName = scanner.next();
+        Product[] products1 = new Product[products.length-1];
+        int j =0;
 
+        for (int i = 0; i < products.length ; i++) {
+            if (!deleteName.equals(products[i].getName()) ){
+                products1[j] = products[i];
+                j++;
+            }
+        }
+        for (int i = 0; i < products1.length; i++) {
+            System.out.println("Các phần tử của mảng là");
+            System.out.println(products1[i].toString());
+        }
+    }
 
 
 }
