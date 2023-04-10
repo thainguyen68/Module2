@@ -5,6 +5,18 @@ import java.util.Scanner;
 public class MethodPro {
     static Scanner scanner = new Scanner(System.in);
 
+
+
+//create Product:
+//    public static void createProducts(Scanner scanner, Product[] products) {
+//        for (int i = 0; i < products.length; i++) {
+//            products[i] = getProduct(scanner, i);
+//        }
+//    }
+//
+//
+
+
     //Get Product
     public static Product getProduct() {
         Scanner scanner = new Scanner(System.in);
@@ -20,14 +32,20 @@ public class MethodPro {
     }
 
     //display Product:
-    public static void displayPro(Product[]products) {
-        for (int j = 0; j < products.length; j++) {
-            System.out.println(products[j]);
+    public static void displayPro(Product[] products) {
+        for (Product p : products) {
+            if (p != null) {
+                System.out.println(p);
+            }
         }
     }
 
 
+
+
+
     //Search Product:
+    //cách 1:
     public static void search(Product[] products) {
         System.out.println("Nhập tên sản phẩm cần tìm:");
         String name = scanner.next();
@@ -43,8 +61,40 @@ public class MethodPro {
         }
     }
 
+    //cách 2
+//    public static Product search(Scanner scanner, Product[] products) {
+//        System.out.println("Nhập vào tên sản phẩm bạn muốn tìm: ");
+//        String nameSearch = scanner.nextLine();
+//        for (Product p : products) {
+//            if (p.getName().equalsIgnoreCase(nameSearch)) {
+//                return p;
+//            }
+//        }
+//        return null;
+//    }
+
+    //cách 3
+//    public static Product[] search(Scanner scanner, Product[] products) {
+//        System.out.println("Nhập vào tên sản phẩm bạn muốn tìm: ");
+//        String nameSearch = scanner.nextLine();
+//        Product[] productSearch = new Product[products.length];
+//        int index = 0;
+//        for (Product p : products) {
+//            if (p.getName().contains(nameSearch)) {
+//                productSearch[index] = p;
+//                index++;
+//            }
+//        }
+//        return productSearch;
+//    }
+
+
+
+
+
 
     //Total Price Of Product:
+    // cách 1:
     public static void sumPriceAllProduct(Product[] products) {
         int sum = 0;
         for (int i = 0; i < products.length; i++) {
@@ -52,6 +102,20 @@ public class MethodPro {
         }
         System.out.println("Tổng tiền của các sản phẩm: " + sum + " " + Product.getUSD());
     }
+
+
+    // cách 2:
+//    public static double sumPriceAllProduct(Product[] products) {
+//        double sum = 0;
+//        for (Product p : products) {
+//            sum += p.getPrice();
+//        }
+//        return sum;
+//    }
+
+
+
+
 
     //Edit Product:
     public static void editProduct(Product[] products) {
@@ -65,6 +129,8 @@ public class MethodPro {
         }
         System.out.println(products[index].toString());
     }
+
+
 
     //Delete Product:
     public static void deleteProduct(Product[] products) {

@@ -18,17 +18,19 @@ public class MainProduct {
 //        MethodPro.sumPriceAllProduct(products);
 //        MethodPro.editProduct(products);
 
-        int number = -1;
-        while (number != 0) {
-            System.out.println("Nhap điều bạn muốn:");
+        int choice ;
+        do {
+            System.out.println("Nhập điều bạn muốn:");
             System.out.println("1 Nếu bạn muốn hiển thị danh sách sản phẩm" + "\n" +
                     "2 Nếu bạn muốn tìm kiếm sản phẩm\n" +
                     "3 Nếu bạn muốn tinh tổng giá các sản phẩm\n" +
                     "4 Nếu bạn muốn sửa sản phẩm\n" +
-                    "5 Nếu bạn muốn xóa sản phẩm");
-            number = scanner.nextInt();
+                    "5 Nếu bạn muốn xóa sản phẩm\n"+
+                    "0 Nếu muốn dừng chương trình1");
+//            choice = Integer.parseInt(scanner.nextLine());
+            choice = scanner.nextInt();
 
-            switch (number) {
+            switch (choice) {
                 case 1:
                     MethodPro.displayPro(products);
                     break;
@@ -50,5 +52,6 @@ public class MainProduct {
                     System.out.println("Mời nhập lại:");
             }
         }
+        while (true);
     }
 }
