@@ -49,18 +49,4 @@ public class Employer {
                 '}';
     }
 
-
-    static Scanner scanner = new Scanner(System.in);
-    public static Employer getEmployer() {
-        System.out.println("Nhập id nhân viên: ");
-        int id = scanner.nextInt();
-        System.out.println("Nhập tên nhân viên: ");
-        String name= scanner.next();
-        System.out.println("Nhập tuổi: ");
-        int age = scanner.nextInt();
-        return new Employer(id,name,age);
-    }
-
-
-
 }

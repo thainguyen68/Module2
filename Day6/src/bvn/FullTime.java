@@ -10,6 +10,11 @@ public class FullTime extends Employer {
     public FullTime() {
     }
 
+    public FullTime(int id, String name, int age, int yearOfExp) {
+        super(id, name, age);
+        this.yearOfExp = yearOfExp;
+    }
+
     public int getYearOfExp() {
         return yearOfExp;
     }
