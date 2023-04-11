@@ -6,8 +6,8 @@ public class PartTime extends Employer {
     public PartTime() {
     }
 
-    public PartTime(int id, String name, int age, int workTime) {
-        super(id, name, age);
+    public PartTime( String name, int age, int workTime) {
+        super( name, age);
         this.workTime = workTime;
     }
 

@@ -4,14 +4,16 @@ import java.util.Scanner;
 
 public class Employer {
     int id;
+    private static int idSum =1 ;
     String name;
     int age;
 
     public Employer() {
+        idSum++;
     }
 
-    public Employer(int id, String name, int age) {
-        this.id = id;
+    public Employer( String name, int age) {
+        this.id = idSum++;
         this.name = name;
         this.age = age;
     }

@@ -11,11 +11,16 @@ public class MainRun {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+//        System.out.println("Nhập số lượng nv");
+//        int num = scanner.nextInt();
+//        Employer[] employers = new Employer[num];
+
+
         Employer[] employers = new Employer[4];
-        FullTime f = new FullTime(1, "NguyenNgu1", 21, 10);
-        FullTime f1 = new FullTime(2, "NguyenNgu2", 22, 10);
-        PartTime p = new PartTime(3, "Van A", 20, 24);
-        PartTime p1 = new PartTime(4, "Van B", 21, 24);
+        FullTime f = new FullTime( "NguyenNgu1", 21, 10);
+        FullTime f1 = new FullTime( "NguyenNgu2", 22, 10);
+        PartTime p = new PartTime( "Van A", 20, 24);
+        PartTime p1 = new PartTime( "Van B", 21, 24);
 
         employers[0] = (Employer) f;
         employers[1] = (Employer) f1;
@@ -33,6 +38,7 @@ public class MainRun {
             System.out.println("6.hiển thị toàn bộ nhân viên");
             System.out.println("0.thoát khỏi chương trình");
             choice = Integer.parseInt(scanner.nextLine());
+//            choice = scanner.nextInt();
             switch (choice) {
                 case 1:
                     ManageEmployer.displayFT(employers);

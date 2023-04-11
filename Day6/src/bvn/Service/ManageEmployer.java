@@ -45,11 +45,11 @@ public class ManageEmployer {
         int choice1 = Integer.parseInt(scanner.nextLine());
         switch (choice1) {
             case 1:
-                FullTime f2 = new FullTime(5, "NguyenNgu3", 35, 5);
+                FullTime f2 = new FullTime( "NguyenNgu3", 35, 5);
                 employers1[employers1.length-1] = f2;
                 break;
             case 2:
-                PartTime p2 = new PartTime(6, "Van C", 30, 30);
+                PartTime p2 = new PartTime("Van C", 30, 30);
                 employers1[employers1.length-1] = p2;
                 break;
         }
