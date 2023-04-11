@@ -2,9 +2,9 @@ package BaiTap.Fan;
 
 public class Fan {
    //khởi tạo
-    final int slow = 1;
-    final int medium = 2;
-    final int fast = 3;
+    int slow = 1;
+    int medium = 2;
+    int fast = 3;
     private int speed;
     private boolean on;
     private double radius;
