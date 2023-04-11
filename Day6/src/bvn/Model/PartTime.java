@@ -1,4 +1,4 @@
-package bvn;
+package bvn.Model;
 
 public class PartTime extends Employer {
     int workTime ;

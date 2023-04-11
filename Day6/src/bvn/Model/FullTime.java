@@ -1,4 +1,4 @@
-package bvn;
+package bvn.Model;
 
 public class FullTime extends Employer {
     int yearOfExp ;

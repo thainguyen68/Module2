@@ -1,4 +1,4 @@
-package bvn;
+package bvn.Model;
 
 import java.util.Scanner;
 

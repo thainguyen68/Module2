@@ -1,57 +1,12 @@
-package bvn;
+package bvn.Service;
 
-import java.util.Arrays;
+import bvn.Model.Employer;
+import bvn.Model.FullTime;
+import bvn.Model.PartTime;
+
 import java.util.Scanner;
 
-public class MainRun {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        Employer[] employers = new Employer[4];
-        FullTime f = new FullTime(1, "NguyenNgu1", 21, 10);
-        FullTime f1 = new FullTime(2, "NguyenNgu2", 22, 10);
-        PartTime p = new PartTime(3, "Van A", 20, 24);
-        PartTime p1 = new PartTime(4, "Van B", 21, 24);
-
-        employers[0] = (Employer) f;
-        employers[1] = (Employer) f1;
-        employers[2] = (Employer) p;
-        employers[3] = (Employer) p1;
-
-        int choice;
-        do {
-            System.out.println("----------MENU----------");
-            System.out.println("1.hiển thị nv fullTime");
-            System.out.println("2.hiển thị nv partTime");
-            System.out.println("3.thêm một nhân viên mới:");
-            System.out.println("4.xóa đi một nhân viên");
-            System.out.println("5.sửa một nhân viên theo id");
-            choice = Integer.parseInt(scanner.nextLine());
-            switch (choice) {
-                case 1:
-                    displayFT(employers);
-                    break;
-                case 2:
-                    displayPT(employers);
-                    break;
-                case 3:
-                    addEmployer(employers);
-                    break;
-                case 4:
-                    deleteEmployer(employers, scanner);
-                    break;
-                case 5:
-                    editEmployer(employers);
-                    break;
-                case 0:
-                    System.exit(0);
-                default:
-                    System.out.println("Không có lựa chọn trên!");
-            }
-        } while (choice != 0);
-    }
-
-
+public class ManageEmployer {
     //displayAll:
     public static void displayAllEmployer(Employer[] employers) {
         for (Employer e : employers) {
@@ -79,12 +34,10 @@ public class MainRun {
 
 
     //addEmployer:
-    public static void addEmployer(Employer[] employers) {
+    public static Employer[] addEmployer(Employer[] employers) {
         Employer[] employers1 = new Employer[employers.length + 1];
-        int index =0;
         for (int i = 0; i < employers.length; i++) {
-            employers1[index] = employers[i];
-            index++;
+            employers1[i] = employers[i];
         }
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập 1 để add FullTime ");
@@ -100,26 +53,26 @@ public class MainRun {
                 employers1[employers1.length-1] = p2;
                 break;
         }
-        employers = employers1;
 //        System.out.println(Arrays.toString(employers));
-        displayAllEmployer(employers);
+        return employers1;
     }
 
 
     //deleteEmployer:
-    public static void deleteEmployer(Employer[] employers, Scanner scanner) {
+    public static Employer[] deleteEmployer(Employer[] employers, Scanner scanner) {
         System.out.println(" Nhập id nv cần xóa:");
         int idDelete = Integer.parseInt(scanner.nextLine());
 
-        Employer[] employer1 = new Employer[employers.length - 1];
+        Employer[] employer2 = new Employer[employers.length - 1];
         int index = 0;
         for (int i = 0; i < employers.length; i++) {
             if (idDelete != employers[i].getId()) {
-                employer1[index] = employers[i];
+                employer2[index] = employers[i];
                 index++;
             }
         }
-        System.out.println(Arrays.toString(employer1));
+//        System.out.println(Arrays.toString(employer1));
+        return employer2;
     }
 
 
@@ -150,5 +103,4 @@ public class MainRun {
 //        System.out.println(Arrays.toString(employers));
         displayAllEmployer(employers);
     }
-
 }
