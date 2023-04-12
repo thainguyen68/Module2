@@ -29,6 +29,7 @@ public class RunMain {
         String description = scanner.next();
 
         System.out.println("Nhập thương hiệu bạn muốn chon:");
+
         for (Brand brand : brandArr) {
             System.out.println(brand);
         }
