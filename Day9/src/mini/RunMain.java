@@ -29,17 +29,17 @@ public class RunMain {
         String description = scanner.next();
 
         System.out.println("Nhập thương hiệu bạn muốn chon:");
-        for (int j = 0; j < brandArr.length; j++) {
-            System.out.println(brandArr[j]);
+        for (Brand brand : brandArr) {
+            System.out.println(brand);
         }
         int choice = scanner.nextInt();
-        Brand newBrand =new Brand();
-        for (int j = 0; j < brandArr.length; j++) {
-            if (choice == brandArr[j].getId()) {
-                newBrand= brandArr[j];
+        Brand newBrand = new Brand();
+        for (Brand brand : brandArr) {
+            if (choice == brand.getId()) {
+                newBrand = brand;
             }
         }
-        return new Product(name, price, description,newBrand);
+        return new Product(name, price, description, newBrand);
     }
 
     public static void displayProducts(Product[] products) {
