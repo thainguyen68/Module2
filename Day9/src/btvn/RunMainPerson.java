@@ -45,7 +45,7 @@ public class RunMainPerson {
                     searchPerson(personArr, scanner);
                     break;
                 case 6:
-                    arrangePerson(scanner,personArr);
+                    arrangePerson(scanner, personArr);
                     break;
                 case 0:
                     System.exit(0);
@@ -65,6 +65,10 @@ public class RunMainPerson {
         for (Address addIn : addresses) {
             System.out.println(addIn);
         }
+        return new Person(name, age, newAddress(scanner, addresses));
+    }
+
+    public static Address newAddress(Scanner scanner, Address[] addresses) {
         System.out.println("Nhập lựa chọn:");
         int choiceAdd = Integer.parseInt(scanner.nextLine());
         Address newAddress = new Address();
@@ -73,7 +77,7 @@ public class RunMainPerson {
                 newAddress = address;
             }
         }
-        return new Person(name, age, newAddress);
+        return newAddress;
     }
 
     public static void displayPerson(Person[] people) {
@@ -106,12 +110,22 @@ public class RunMainPerson {
         return newPerson;
     }
 
+
     public static Person[] editPerson(Person[] people, Scanner scanner, Address[] addresses) {
         System.out.println("Nhập vào id người cần sửa thông tin:");
         int idEdit = Integer.parseInt(scanner.nextLine());
         for (int i = 0; i < people.length; i++) {
             if (idEdit == people[i].getId()) {
-                people[i] = createPerson(scanner, addresses);
+                System.out.println("Nhập tên:");
+                people[i].setName(scanner.nextLine());
+                System.out.println("Nhập tuổi:");
+                people[i].setAge(Integer.parseInt(scanner.nextLine()));
+
+                System.out.println("Nhập địa chỉ mà bạn mong muốn");
+                for (Address addIn : addresses) {
+                    System.out.println(addIn);
+                }
+                people[i].setAddress(newAddress(scanner, addresses));
             }
         }
         return people;
@@ -130,14 +144,22 @@ public class RunMainPerson {
         if (!check) {
             System.out.println("Không tìm thấy...");
         }
+
+
+//        for (Person p : people) {
+//            if (p.getAddress().getName().equalsIgnoreCase(searchName)) {
+//                return p;
+//            }
+//        }
+//        return null;
     }
 
 
-    public static Person[] arrangePerson(Scanner scanner, Person[] people){
+    public static Person[] arrangePerson(Scanner scanner, Person[] people) {
         Person temp = new Person();
         for (int i = 0; i < people.length; i++) {
-            for (int j = i+1; j < people.length; j++) {
-                if(people[i].getName().compareTo(people[j].getName())>0){
+            for (int j = i + 1; j < people.length; j++) {
+                if (people[i].getName().compareTo(people[j].getName()) > 0) {
                     temp = people[i];
                     people[i] = people[j];
                     people[j] = temp;
