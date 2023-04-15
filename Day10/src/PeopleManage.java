@@ -3,10 +3,17 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 public class PeopleManage implements Manage {
-    ArrayList<People> peopleList = new ArrayList<>();
+   static ArrayList<People> peopleList = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
 
     public PeopleManage() {
+//        People people = new People("Thai",23);
+        Student student1 = new Student("Thai",23,6.8);
+        Student student2 = new Student("Duong",21,9.9);
+        Student student3 = new Student("Dung",21,1.1);
+        peopleList.add(student1);
+        peopleList.add(student2);
+        peopleList.add(student3);
     }
 
     public PeopleManage(ArrayList<People> person) {
@@ -156,6 +163,7 @@ public class PeopleManage implements Manage {
                else {
                    return 0;
                }
+//                return ((Student) o1).setAvg().compareTo((Student) o2).setAvg());
             }
         });
     }
