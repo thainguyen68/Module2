@@ -1,3 +1,5 @@
+package mini;
+
 public class People {
     private static int idPlus = 1;
 

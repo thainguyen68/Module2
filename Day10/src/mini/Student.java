@@ -1,3 +1,5 @@
+package mini;
+
 public class Student extends People {
     private double avg;
 

@@ -1,3 +1,5 @@
+package mini;
+
 public interface Manage {
 
     void displayAllPeople() ;

@@ -1,0 +1,22 @@
+1. Contact (có tính bao gói):
+- name
+- phoneNumber
+2. abstract Phone:
+- abstract void insertPhone(Contact contact)
+- abstract void removePhone(String name)
+- abstract void updatePhone(String name, String newPhone)
+3(option). interface IPhone:
+- void searchPhone(String name)
+- void sort()
+
+4. PhoneBookManage:
+- Mảng phoneList để lưu dữ liệu
+- insertPhone(String name, String phone)
+	+ Option: Nếu người dùng đã có sẵn trong phoneList thì báo ghi đè số mới vào số cũ
+- removePhone(String name)
+- updatePhone(String name, String newPhone)
+- searchPhone(String name)
+- sort()
+
+5. Main:
+- main(): menu cho người dùng
