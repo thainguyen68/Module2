@@ -1,9 +1,9 @@
 package miniTest;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ClassroomManage {
-
 
     ArrayList<Classroom> classrooms = new ArrayList<>();
 
@@ -12,9 +12,5 @@ public class ClassroomManage {
         Classroom classroom1 = new Classroom(2, "12b");
         classrooms.add(classroom);
         classrooms.add(classroom1);
-
-
     }
-
-
 }

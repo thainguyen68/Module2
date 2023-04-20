@@ -6,8 +6,6 @@ public class MySymtem {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         StudentManage studentManage = new StudentManage();
-        String classroom = new String();
-
         int choice;
         do {
             System.out.println("menu");
@@ -21,6 +19,9 @@ public class MySymtem {
             System.out.println("8. hiện thông tin hs có avg Max: ");
             System.out.println("9. hiện thông tin hs có avg Min: ");
             System.out.println("10. tìm kiếm hs theo tên: ");
+            System.out.println("11. hiển thị tất cả class: ");
+            System.out.println("12. thêm lớp mới: ");
+            System.out.println("13. Nhập id hiển thị lớp: ");
             System.out.println("Nhập lựa chọn bạn muốn: ");
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice){
@@ -53,6 +54,15 @@ public class MySymtem {
                     break;
                 case 10:
                     studentManage.searchStuName(scanner);
+                    break;
+                case 11:
+                    studentManage.displayClassroom();
+                    break;
+                case 12:
+                    studentManage.addClassrom(scanner);
+                    break;
+                case 13:
+                    studentManage.searchClassByName(scanner);
                     break;
             }
 

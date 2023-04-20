@@ -1,0 +1,53 @@
+Xây dựng chương trình quản lý học viên. Bao gồm:
+- Lớp Student: id, name, age, gender, avgPoint, Classroom
+- Lớp Classroom: id, name
+- Interface Manage<E> chứa các p.thức:
+	+ Tạo 1 đối tượng, trả về đối tượng vừa tạo
+	+ Sửa 1 đối tượng, trả về đối tượng vừa sửa
+	+ Xóa 1 đối tượng, trả về đối tượng vừa xóa
+	+ Lấy ra 1 đối tượng, trả về đối tượng vừa tìm thấy
+	+ Hiển thị tất cả đối tượng, void method
+- Lớp StudentManage:
+	- List<Student> students
+	+ Tạo mới 1 Student:
+		+ Gender được chọn:
+			1. Nam
+			2. Nữ
+			3. Other
+		+ Kiểm tra điểm >= 0 và <= 10
+		+ Kiểm tra tuổi >= 6 và <= 60
+		+ Classroom được chọn từ List có sẵn
+		==> Các trường nhập sai, yêu cầu nhập lại trường đó
+		Nâng cao: nhập sai 3 lần thì quay lại menu chính
+	+ Sửa thông tin Student theo id
+	+ Xóa 1 Student theo id
+	+ Lấy ra 1 Student theo id
+	+ Hiển thị 1 Student theo id
+	+ Hiển thị tất cả Student
+	+ Hiển thị tất cả Student theo Classroom
+	+ Hiển thị tất cả Student + thông tin học lực dựa theo điểm trung bình
+		+ >8: Xếp loại Giỏi
+		+ >6: Xếp loại Khá
+		+ >4,5: Xếp loại Trung bình	
+		+ Xếp loại Kém
+	+ Hiển thị Student có điểm:
+		+ Cao nhất
+		+ Thấp nhất
+	+ Tìm kiếm Student theo tên gần đúng
+	+ Hiển thị tất cả Student theo giới tính
+		+ Nam
+		+ Nữ
+		+ Other
+- Lớp ClassroomeManage:
+	- List<Classroom> classrooms
+	+ Tạo mới 1 Classroom
+	+ Sửa thông tin Classroom theo id
+	+ Xóa 1 Classroom theo id
+	==> Nâng cao: khi xóa Classroom thì đồng thời xóa toàn bộ Student của Classroom đó
+	+ Lấy ra 1 Classroom theo id
+	+ Hiển thị tất cả Classroom
+- Lớp MySymtem:
+	+ Chứa p.thức main() và các thành phần tạo nên chương trình
+
+
+=> Chú ý CodingConvention và đồng bộ tiếng Anh, Việt trong chương trình nhé.

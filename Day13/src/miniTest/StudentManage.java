@@ -8,7 +8,7 @@ public class StudentManage implements Manage {
     static ArrayList<Student> arrayList = new ArrayList<>();
     static Map<Integer, String> gender = new TreeMap<>();
     Set<Integer> k = gender.keySet();
-    ClassroomManage classroomManage = new ClassroomManage();
+     ClassroomManage classroomManage = new ClassroomManage();
 
 
     public StudentManage() {
@@ -197,5 +197,24 @@ public class StudentManage implements Manage {
         }
     }
 
+    public void addClassrom (Scanner scanner){
+        System.out.println("Nhập thêm lớp:");
+        System.out.println("Nhập id lớp mới:");
+        int id = Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhập tên lớp moi: ");
+        String name = scanner.nextLine();
+        classroomManage.classrooms.add(new Classroom(id,name));
+        displayClassroom();
+    }
 
+    public void searchClassByName(Scanner scanner){
+        System.out.println("Nhập id của lớp muốn hiển thị: ");
+        int idSearchByName = Integer.parseInt(scanner.nextLine());
+       for (Classroom sN: classroomManage.classrooms){
+           if (idSearchByName == sN.getId()){
+               System.out.println(sN);
+           }
+       }
+
+    }
 }
