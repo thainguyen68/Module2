@@ -9,10 +9,6 @@ public class MainRun {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         List<Account> accountList = new ArrayList<>();
-//        Account account1 = new Account(1, "ThaiNguyen", "abc123", "Nguyễn Văn Thái", 012566666666, "HN");
-//        Account account2 = new Account(2, "ThaiNguyen1", "abc456", "Nguyễn Văn Thái", 01513151531, "HN");
-//        accountList.add(account1);
-//        accountList.add(account2);
 
         int choice;
         do {
@@ -35,7 +31,7 @@ public class MainRun {
                         System.exit(0);
                 }
             } catch (NumberFormatException e) {
-                System.out.println("yntax error!");
+                System.out.println("syntax error!");
             }
         } while (true);
 
@@ -79,11 +75,10 @@ public class MainRun {
         for (Account c : accountList) {
             if (c.getUsername().equalsIgnoreCase(user) && c.getPassword().equalsIgnoreCase(pass)) {
                 System.out.println("Login Success");
-                break;
             } else {
                 System.out.println("Incorrect account or password !");
-                break;
             }
+            break;
         }
     }
 
