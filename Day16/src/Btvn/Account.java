@@ -9,13 +9,13 @@ public class Account {
     private String username;
     private String password;
     private String fullname;
-    private int phoneNumber;
+    private String phoneNumber;
     private String address;
 
     public Account() {
     }
 
-    public Account(String username, String password, String fullname, int phoneNumber, String address) {
+    public Account(String username, String password, String fullname, String phoneNumber, String address) {
         this.id = ++idup;
         this.username = username;
         this.password = password;
@@ -56,11 +56,11 @@ public class Account {
         this.fullname = fullname;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

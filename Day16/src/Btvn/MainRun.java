@@ -38,27 +38,14 @@ public class MainRun {
     }
 
     public static void createAccount(Scanner scanner, List<Account> accountList) {
-//        int id = 0;
-//        try {
-//            System.out.println("Enter id here: ");
-//            id = Integer.parseInt(scanner.nextLine());
-//        } catch (NumberFormatException e) {
-//            System.out.println("syntax error!");
-//        }
         System.out.println("Enter username here: ");
         String user = scanner.nextLine();
         System.out.println("Enter password here: ");
         String pass = scanner.nextLine();
         System.out.println("Enter fullname here: ");
         String fullname = scanner.nextLine();
-        int phoneNum = 0;
-        try {
-            System.out.println("Enter phonme number here: ");
-            phoneNum = Integer.parseInt(scanner.nextLine());
-        } catch (NumberFormatException e) {
-            System.out.println("syntax error!");
-        }
-
+        System.out.println("Enter phonme number here: ");
+        String phoneNum = scanner.nextLine();
         System.out.println("Enter address here: ");
         String address = scanner.nextLine();
         Account account = new Account(user, pass, fullname, phoneNum, address);
@@ -72,6 +59,7 @@ public class MainRun {
         String user = scanner.nextLine();
         System.out.println("Enter password here: ");
         String pass = scanner.nextLine();
+
         for (Account c : accountList) {
             if (c.getUsername().equalsIgnoreCase(user) && c.getPassword().equalsIgnoreCase(pass)) {
                 System.out.println("Login Success");
@@ -90,18 +78,19 @@ public class MainRun {
         String[] arrNew;
         while ((c = bufferedReader.readLine()) != null) {
             arrNew = c.split(",");
-            accountList.add(new Account( arrNew[1], arrNew[2], arrNew[3], Integer.parseInt(arrNew[4]), arrNew[5]));
+            accountList.add(new Account(arrNew[1], arrNew[2], arrNew[3], arrNew[4], arrNew[5]));
         }
         bufferedReader.close();
         fileReader.close();
     }
+
     public static void writeFile(List<Account> accountList) {
         File f = new File("E:\\.C0223I1\\Module2\\Day16\\src\\Btvn\\Account.txt");
         try {
             if (!f.exists()) {
                 throw new FileNotFoundException();
             }
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(f,true));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(f, true));
             for (Account account : accountList) {
                 bufferedWriter.write(account.toString() + "\n");
             }
