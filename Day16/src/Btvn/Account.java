@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Account {
-
+    private static int idup = 0;
     private int id;
     private String username;
     private String password;
@@ -15,8 +15,8 @@ public class Account {
     public Account() {
     }
 
-    public Account(int id, String username, String password, String fullname, int phoneNumber, String address) {
-        this.id = id;
+    public Account(String username, String password, String fullname, int phoneNumber, String address) {
+        this.id = ++idup;
         this.username = username;
         this.password = password;
         this.fullname = fullname;
@@ -74,7 +74,7 @@ public class Account {
 
     @Override
     public String toString() {
-        return        id +
+        return id +
                 "," + username +
                 "," + password +
                 "," + fullname +

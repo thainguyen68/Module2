@@ -38,13 +38,13 @@ public class MainRun {
     }
 
     public static void createAccount(Scanner scanner, List<Account> accountList) {
-        int id = 0;
-        try {
-            System.out.println("Enter id here: ");
-            id = Integer.parseInt(scanner.nextLine());
-        } catch (NumberFormatException e) {
-            System.out.println("syntax error!");
-        }
+//        int id = 0;
+//        try {
+//            System.out.println("Enter id here: ");
+//            id = Integer.parseInt(scanner.nextLine());
+//        } catch (NumberFormatException e) {
+//            System.out.println("syntax error!");
+//        }
         System.out.println("Enter username here: ");
         String user = scanner.nextLine();
         System.out.println("Enter password here: ");
@@ -61,7 +61,7 @@ public class MainRun {
 
         System.out.println("Enter address here: ");
         String address = scanner.nextLine();
-        Account account = new Account(id, user, pass, fullname, phoneNum, address);
+        Account account = new Account(user, pass, fullname, phoneNum, address);
         accountList.add(account);
         writeFile(accountList);
     }
@@ -90,7 +90,7 @@ public class MainRun {
         String[] arrNew;
         while ((c = bufferedReader.readLine()) != null) {
             arrNew = c.split(",");
-            accountList.add(new Account((Integer.parseInt(arrNew[0])), arrNew[1], arrNew[2], arrNew[3], Integer.parseInt(arrNew[4]), arrNew[5]));
+            accountList.add(new Account( arrNew[1], arrNew[2], arrNew[3], Integer.parseInt(arrNew[4]), arrNew[5]));
         }
         bufferedReader.close();
         fileReader.close();
@@ -101,7 +101,7 @@ public class MainRun {
             if (!f.exists()) {
                 throw new FileNotFoundException();
             }
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(f));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(f,true));
             for (Account account : accountList) {
                 bufferedWriter.write(account.toString() + "\n");
             }
