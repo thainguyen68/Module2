@@ -1,32 +1,36 @@
-package miniTest.service.impl;
+package chua_baitap_19_04.service.impl;
 
-import miniTest.model.Classroom;
-import miniTest.model.Student;
-import miniTest.service.IOFile;
-import miniTest.service.Manage;
+import chua_baitap_19_04.io.IOFile;
+import chua_baitap_19_04.model.Classroom;
+import chua_baitap_19_04.model.Student;
+import chua_baitap_19_04.service.Manage;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
-public class StudentManage implements Manage<Student> {
+public class StudentManage implements Manage<Student>, IOFile<Student> {
 
     private final Scanner scanner;
     private final ArrayList<Student> students;
     private final ClassroomManage classroomManage;
+    private final String PATH_FILE = "C:\\Users\\ADMIN\\Desktop\\Module_C0223\\src\\minitest\\baitap_19_04\\data\\student.txt";
 
-    IOFile ioFile;
-    public StudentManage(ClassroomManage classroomManage, Scanner scanner) throws IOException {
-        ioFile = new IOFile();
+    public StudentManage(ClassroomManage classroomManage, Scanner scanner) {
         this.scanner = scanner;
-        students = new ArrayList<>();
         this.classroomManage = classroomManage;
-//        students.add(new Student(1,"D", 19, "Male", 8, classroomManage.getClassrooms().get(0)));
-//        students.add(new Student(2,"V", 23, "Male", 5, classroomManage.getClassrooms().get(1)));
-//        students.add(new Student(3,"T", 32, "Male", 9, classroomManage.getClassrooms().get(1)));
-        ioFile.readFileStudent(students);
-        ioFile.readFileClassroom(classroomManage.getClassrooms());
+        students = read(PATH_FILE);
+        checkDefaultIndex();
+    }
+
+    private void checkDefaultIndex() {
+        if (students.isEmpty()) {
+            Student.INDEX = 0;
+        } else {
+            Student.INDEX = students.get(students.size() - 1).getId();
+        }
     }
 
     public ClassroomManage getClassroomManage() {
@@ -34,11 +38,9 @@ public class StudentManage implements Manage<Student> {
     }
 
     @Override
-    public Student create() throws IOException {
+    public Student create() {
         //đếm số lần nhập
         int count = 0;
-        System.out.println("Input id student: ");
-        int id = Integer.parseInt(scanner.nextLine());
         //nhập tên
         System.out.println("Input name student: ");
         String name = scanner.nextLine();
@@ -53,17 +55,16 @@ public class StudentManage implements Manage<Student> {
         if (avg == null) return null;
         //nhập Classroom có điều kiện
         Classroom classroom = getClassroom();
-        Student student = new Student(id, name, age, gender, avg, classroom);
+        Student student = new Student(name, age, gender, avg, classroom);
         students.add(student);
-        ioFile.writeFileStudent(students);
+        write(students, PATH_FILE);
         return student;
     }
 
-    private Classroom getClassroom()  {
+    private Classroom getClassroom() {
         System.out.println("Input classroom of student: ");
         Classroom classroom;
         do {
-//            classroomManage.displayAll();
             classroom = classroomManage.getById();
         } while (classroom == null);
         return classroom;
@@ -72,16 +73,19 @@ public class StudentManage implements Manage<Student> {
 
     private Double getAvgPoint(int count) {
         System.out.println("Input avg student: ");
-        double avg;
+        double avg = -1;
         do {
-            avg = Double.parseDouble(scanner.nextLine());
             count++;
+            try {
+                avg = Double.parseDouble(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.err.println(e.getMessage());
+            }
             if (count == 4) {
                 return null;
             } else if (avg < 0 || avg > 10) {
                 System.out.println("Please re-input: ");
             }
-
         } while ((avg < 0 || avg > 10));
         return avg;
     }
@@ -138,7 +142,7 @@ public class StudentManage implements Manage<Student> {
 
 
     @Override
-    public Student update() throws IOException {
+    public Student update() {
         Student student = getById();
         if (student != null) {
             System.out.println("Input new name student: ");
@@ -170,17 +174,17 @@ public class StudentManage implements Manage<Student> {
                 student.setClassroom(classroom);
             }
         }
-        ioFile.writeFileStudent(students);
+        write(students, PATH_FILE);
         return student;
     }
 
     @Override
-    public Student delete() throws IOException {
+    public Student delete() {
         Student student = getById();
         if (student != null) {
             students.remove(student);
         }
-        ioFile.writeFileStudent(students);
+        write(students, PATH_FILE);
         return student;
     }
 
@@ -206,14 +210,13 @@ public class StudentManage implements Manage<Student> {
         }
     }
 
-    public void deleteByClassroom(Classroom classroom) throws IOException {
+    public void deleteByClassroom(Classroom classroom) {
         Iterator<Student> studentIterator = students.iterator();
         while (studentIterator.hasNext()) {
             if (studentIterator.next().getClassroom().equals(classroom)) {
                 studentIterator.remove();
             }
         }
-        ioFile.writeFileStudent(students);
     }
 
     public void displayOne(Student student) {
@@ -329,5 +332,48 @@ public class StudentManage implements Manage<Student> {
                 }
                 break;
         }
+    }
+
+    @Override
+    public void write(List<Student> e, String path) {
+        File file = new File(path);
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))) {
+            for (Student student : e) {
+                bufferedWriter.write(student.getId() + "," + student.getName() + ","
+                        + student.getAge() + "," + student.getGender() + ","
+                        + student.getAvg() + "," + student.getClassroom().getId() + "\n");
+            }
+        } catch (IOException ioException) {
+            System.err.println(ioException.getMessage());
+        }
+    }
+
+    @Override
+    public ArrayList<Student> read(String path) {
+        File file = new File(path);
+        ArrayList<Student> students = new ArrayList<>();
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
+            String data;
+            while ((data = bufferedReader.readLine()) != null) {
+                String[] strings = data.split(",");
+                students.add(new Student(Integer.parseInt(strings[0]), strings[1],
+                        Integer.parseInt(strings[2]), strings[3],
+                        Double.parseDouble(strings[4]),
+                        classroomManage.getById(Integer.parseInt(strings[5]))));
+            }
+        } catch (IOException ioException) {
+            System.err.println(ioException.getMessage());
+        }
+        return students;
+    }
+
+    @Override
+    public void writeBinary(List<Student> e, String path) {
+
+    }
+
+    @Override
+    public ArrayList<Student> readBinary(String path) {
+        return null;
     }
 }

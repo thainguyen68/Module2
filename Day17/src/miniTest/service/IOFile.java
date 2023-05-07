@@ -29,33 +29,31 @@ public class IOFile {
         fileWriter.close();
     }
 
-    public List<Student> readFileStudent(List<Student> students) throws IOException {
+    public void readFileStudent(List<Student> students) throws IOException {
         File f = new File("E:\\.C0223I1\\Module2\\Day17\\src\\miniTest\\Data\\student.txt");
         FileReader fileReader = new FileReader(f);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String c;
         while ((c= bufferedReader.readLine()) != null){
-            String str[] = c.split(",");
+            String[] str = c.split(",");
             Student student = new Student(Integer.parseInt(str[0]),str[1], Integer.parseInt(str[2]), str[3], Double.parseDouble(str[4]), new Classroom(Integer.parseInt(str[5]),str[6]));
             students.add(student);
         }
         bufferedReader.close();
         fileReader.close();
-        return students;
     }
 
-    public List<Classroom> readFileClassroom(List<Classroom> classrooms) throws IOException {
+    public void readFileClassroom(List<Classroom> classrooms) throws IOException {
         File f = new File("E:\\.C0223I1\\Module2\\Day17\\src\\miniTest\\Data\\classroom.txt");
         FileReader fileReader = new FileReader(f);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String c;
         while ((c= bufferedReader.readLine()) != null){
-            String str[] = c.split(",");
+            String[] str = c.split(",");
             Classroom classroom = new Classroom((Integer.parseInt(str[0])), str[1]);
             classrooms.add(classroom);
         }
         bufferedReader.close();
         fileReader.close();
-        return classrooms;
     }
 }

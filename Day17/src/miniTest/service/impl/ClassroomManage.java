@@ -29,7 +29,7 @@ public class ClassroomManage implements Manage<Classroom> {
 
     @Override
     public Classroom create() throws IOException {
-        System.out.println("Input name classroom: ");
+        System.out.println("Input id classroom: ");
         int id = Integer.parseInt(scanner.nextLine());
         System.out.println("Input name classroom: ");
         String name = scanner.nextLine();
