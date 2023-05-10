@@ -97,6 +97,7 @@ public class ManageProduct {
         return product;
     }
 
+
     public Product delete() {
         Product product = getById();
         if (product != null) {

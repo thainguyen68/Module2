@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Cart {
-    private int id;
+public class Cart implements Serializable {
+    private static final long serialVersionUID = 3L;
     private String name;
     private LocalDate date;
     private boolean isPaid;
@@ -10,7 +11,6 @@ public class Cart {
     }
 
     public Cart(String name) {
-        this.id = 1;
         this.name = name;
         this.date = LocalDate.now();
         this.isPaid = false;
@@ -25,13 +25,7 @@ public class Cart {
         return date;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -51,6 +45,11 @@ public class Cart {
 
     @Override
     public String toString() {
-        return id + "," + name + ","+ date  ;
+        return name + ","+ date ;
+    }
+
+    public void display() {
+        System.out.printf("%-15s%-15s%-18s%s",
+                this.name, this.date + "\n");
     }
 }

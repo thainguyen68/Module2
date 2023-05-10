@@ -1,4 +1,6 @@
-public class Color {
+import java.io.Serializable;
+
+public class Color implements Serializable {
     private static final long serialVersionUID = 4L;
     public static int idUpColor;
     private int id;

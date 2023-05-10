@@ -98,8 +98,9 @@ public class MainRun {
             System.out.println("Menu");
             System.out.println("1. Display cart");
             System.out.println("2. Add to cart");
-            System.out.println("3. ");
-            System.out.println("4. ");
+            System.out.println("3. Delete from cart");
+            System.out.println("4. Update to cart");
+            System.out.println("5. Total Paid");
             System.out.println("0. Exit!");
             System.out.println("-->Enter your choice here!<--");
             try {
@@ -113,7 +114,16 @@ public class MainRun {
                     manageCart.displayCart();
                     break;
                 case 2:
-                    manageCart.shopping();
+                    manageCart.cart();
+                    break;
+                case 3:
+                    manageCart.deleteCart();
+                    break;
+                case 4:
+                    manageCart.upDateCart();
+                    break;
+                case 5:
+                    manageCart.sumPaid();
                     break;
             }
         } while (choice != 0);

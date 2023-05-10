@@ -59,4 +59,5 @@ public class Demo {
         System.out.println(objDemo1);
     }
 
+    static public void abc(){}
 }
