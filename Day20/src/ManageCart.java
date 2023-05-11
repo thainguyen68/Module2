@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class ManageCart {
     private final Scanner scanner = new Scanner(System.in);
     private final String PATH_FILE = "E:\\.C0223I1\\Module2\\Day20\\src\\Cart.txt";
-    private List<Cart> carts = new ArrayList<>();
-    private ArrayList<CartDetail> cartDetails;
+    private final List<Cart> carts = new ArrayList<>();
+    private final ArrayList<CartDetail> cartDetails;
     ManageProduct manageProduct;
 
     public ManageCart(ManageProduct manageProduct) {
@@ -18,7 +18,7 @@ public class ManageCart {
 
     private void checkDefaultIndex() {
         if (cartDetails.isEmpty()) {
-            Product.idUp = 0;
+            CartDetail.idUpCart = 0;
         } else {
             CartDetail.idUpCart = cartDetails.get(cartDetails.size() - 1).getId();
         }
@@ -92,14 +92,11 @@ public class ManageCart {
     }
 
     public void displayCart() {
-//        double sum = 0;
         System.out.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s%-15s%s",
                 "Id", "UserName", "Date-buy", "Id-Pro", "Name-Product", "Color", "Price", "Description", "Quantity\n");
         for (CartDetail cartDetail : cartDetails) {
-//            sum += cartDetail.getProduct().getPrice() * cartDetail.getQuantity();
             cartDetail.display();
         }
-//        System.out.println("Total amount to be paid: " + sum);
     }
 
 //    public void displayCartUser() {
